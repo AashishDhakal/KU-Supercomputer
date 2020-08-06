@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'resourcemanagement.apps.ResourcemanagementConfig',
     'cms.apps.CmsConfig',
     'django_summernote',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -164,3 +165,5 @@ EMAIL_HOST_USER = 'admin@techhimalaya.com'
 EMAIL_HOST_PASSWORD = '2020@techhimalaya'
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
