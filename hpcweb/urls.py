@@ -21,5 +21,6 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('hpcadmincontrol/', admin.site.urls),
     path('', include('cms.urls')),
+    path('resources/', include('resourcemanagement.urls')),
     path('summernote/', include('django_summernote.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

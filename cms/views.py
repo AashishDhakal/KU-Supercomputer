@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from .models import *
 from .forms import ContactForm
@@ -28,3 +28,27 @@ class ContactView(SuccessMessageMixin, CreateView):
     template_name = 'contact.html'
     success_url = reverse_lazy('contact')
     success_message = "Query Submitted, we will reach out to you very soon."
+
+
+def aboutview(request):
+    about = About.objects.first()
+    galleries = Gallery.objects.all()
+
+    return render(request, 'about.html', {
+        'about': about,
+        'galleries': galleries,
+    })
+
+
+def newslistview(request):
+    news = News.objects.all().order_by('-published_date')
+    return render(request, 'blog.html', {
+        'news': news,
+    })
+
+
+def newsdetailview(request, slug):
+    news = get_object_or_404(News, slug=slug)
+    return render(request, 'blog_details.html', {
+        'news': news,
+    })

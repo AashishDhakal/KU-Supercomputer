@@ -45,17 +45,16 @@
 <nav>
 <ul id="navigation">
 <li><a href="{% url 'home' %}">Home</a></li>
-<li><a href="about.html">About</a></li>
-<li><a href="spakers.html">Team</a></li>
-<li><a href="schedule.html">Resources</a></li>
-<li><a href="blog.html">News</a>
+<li><a href="{% url 'about' %}">About</a></li>
+<li><a href="#">Resources</a></li>
+<li><a href="{% url 'newslist' %}">News</a>
 </li>
 <li><a href="{% url 'contact' %}">Contact</a></li>
 </ul>
 </nav>
 </div>
 <div class="header-right-btn f-right d-none d-lg-block ml-30">
-<a href="#" class="btn header-btn">Apply for resource</a>
+<a href="{% url 'application' %}" class="btn header-btn">Apply for resource</a>
 </div>
 </div>
 </div>

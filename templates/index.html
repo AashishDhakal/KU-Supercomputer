@@ -60,7 +60,7 @@
 <div class="col-lg-5 col-md-8">
 <div class="section-tittle text-center mb-50">
 <h2>Recent News and Activities at HPC KU</h2>
-<p>Get Updated with Recent News at HPC KU/p>
+<p>Get Updated with Recent News at HPC KU</p>
 </div>
 </div>
 </div>
@@ -73,14 +73,13 @@
 <img src="{{ new.thumbnail.url }}" alt="">
 
 <div class="blog-date text-center">
-<span>{{ new.published_date.date.day }}</span>
-<p>{{ new.published_date.date.month }}</p>
+<span>{{ new.published_date.date }}</span>
 </div>
 </div>
 <div class="blog-cap">
 <p>| {{ new.category }}</p>
 <h3><a href="blog_details.html">{{ new.title }}</a></h3>
-<a href="blog_details.html" class="more-btn">Read more »</a>
+<a href="{% url 'newsdetail' new.slug %}" class="more-btn">Read more »</a>
 </div>
 </div>
 </div>

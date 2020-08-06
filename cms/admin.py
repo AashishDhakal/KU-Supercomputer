@@ -13,6 +13,7 @@ class NewsAdmin(SummernoteModelAdmin):
     list_display = ['title', 'published_date', 'category']
     search_fields = ['title', ]
     filter_fields = ['category', 'published_date']
+    prepopulated_fields = {'slug': ('title',)}
 
 
 class SponsorAdmin(admin.ModelAdmin):
