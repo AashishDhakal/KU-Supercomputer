@@ -4,6 +4,7 @@ from .models import *
 from .forms import ContactForm
 from django.views.generic import CreateView
 from django.contrib.messages.views import SuccessMessageMixin
+from .tasks import get_news_headline
 # Create your views here.
 
 
@@ -13,12 +14,14 @@ def index(request):
     teams = TeamMember.objects.all()
     galleries = Gallery.objects.all()
     sponsors = Sponsor.objects.all()
+    top_headlines = get_news_headline.delay()
     return render(request, 'index.html', {
         'about': about,
         'news': news,
         'teams': teams,
         'galleries': galleries,
         'sponsors': sponsors,
+        'top_headlines': top_headlines,
     })
 
 
