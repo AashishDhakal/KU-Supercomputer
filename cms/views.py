@@ -14,14 +14,14 @@ def index(request):
     teams = TeamMember.objects.all()
     galleries = Gallery.objects.all()
     sponsors = Sponsor.objects.all()
-    top_headlines = get_news_headline.delay()
+    # top_headlines = get_news_headline.delay()
     return render(request, 'index.html', {
         'about': about,
         'news': news,
         'teams': teams,
         'galleries': galleries,
         'sponsors': sponsors,
-        'top_headlines': top_headlines,
+        # 'top_headlines': top_headlines,
     })
 
 
