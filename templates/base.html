@@ -23,51 +23,59 @@
 <link rel="stylesheet" href="{% static 'css/slick.css' %}">
 <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="{% static 'css/custom.css' %}">
 </head>
 <body>
+<nav class="navbar">
+    <div class="container">
 
-<header>
+      <div class="navbar-header">
+        <button class="navbar-toggler" data-toggle="open-navbar1">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <a href="#">
+          <h4>Super<span>Computer</span></h4>
+        </a>
+      </div>
 
-<div class="header-area">
-<div class="main-header header-sticky">
-<div class="container-fluid">
-<div class="row align-items-center">
-
-<div class="col-xl-2 col-lg-2 col-md-1">
-<div class="logo">
-<a href="{% url 'home' %}"><img src="{% static 'img/logo/logo.png' %}" alt=""></a>
-</div>
-</div>
-<div class="col-xl-10 col-lg-10 col-md-10">
-<div class="menu-main d-flex align-items-center justify-content-end">
-
-<div class="main-menu f-right d-none d-lg-block">
-<nav>
-<ul id="navigation">
-<li><a href="{% url 'home' %}">Home</a></li>
-<li><a href="{% url 'about' %}">About</a></li>
-<li><a href="#">Resources</a></li>
-<li><a href="{% url 'newslist' %}">News</a>
-</li>
-<li><a href="{% url 'contact' %}">Contact</a></li>
-</ul>
-</nav>
-</div>
-<div class="header-right-btn f-right d-none d-lg-block ml-30">
-<a href="{% url 'application' %}" class="btn header-btn">Apply for resource</a>
-</div>
-</div>
-</div>
-
-<div class="col-12">
-<div class="mobile_menu d-block d-lg-none"></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-</header>
+      <div class="navbar-menu" id="open-navbar1">
+        <ul class="navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li class="navbar-dropdown">
+            <a href="#" class="dropdown-toggler" data-dropdown="my-dropdown-id">
+              Categories <i class="fa fa-angle-down"></i>
+            </a>
+            <ul class="dropdown" id="my-dropdown-id">
+              <li><a href="#">Actions</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li class="separator"></li>
+              <li><a href="#">Seprated link</a></li>
+              <li class="separator"></li>
+              <li><a href="#">One more seprated link.</a></li>
+            </ul>
+          </li>
+          <li class="navbar-dropdown">
+            <a href="#" class="dropdown-toggler" data-dropdown="blog">
+              Blog <i class="fa fa-angle-down"></i>
+            </a>
+            <ul class="dropdown" id="blog">
+              <li><a href="#">Some category</a></li>
+              <li><a href="#">Some another category</a></li>
+              <li class="separator"></li>
+              <li><a href="#">Seprated link</a></li>
+              <li class="separator"></li>
+              <li><a href="#">One more seprated link.</a></li>
+            </ul>
+          </li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Signin</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 <main>
     {% block content %}
     {% endblock %}
@@ -233,6 +241,7 @@ Copyright &copy;<script type="e108465973b1c867d2ec03f2-text/javascript">document
 
 <script src="{% static 'js/plugins.js' %}" type="e108465973b1c867d2ec03f2-text/javascript"></script>
 <script src="{% static 'js/main.js' %}" type="e108465973b1c867d2ec03f2-text/javascript"></script>
+<script src="{% static 'js/custom.js' %}"></script>
 
 </body>
 </html>
