@@ -10,18 +10,19 @@ from .tasks import get_news_headline
 
 def index(request):
     about = About.objects.first()
-    news = News.objects.all().order_by('-published_date')[:3]
+    news = News.objects.filter(category='News').order_by('-published_date')[:5]
+    notices = News.objects.filter(category='Notices').order_by('-published_date')[:5]
     teams = TeamMember.objects.all()
     galleries = Gallery.objects.all()
     sponsors = Sponsor.objects.all()
-    # top_headlines = get_news_headline.delay()
+    top_headlines = get_news_headline()['articles'][:5]
     return render(request, 'index.html', {
         'about': about,
         'news': news,
         'teams': teams,
         'galleries': galleries,
         'sponsors': sponsors,
-        # 'top_headlines': top_headlines,
+        'top_headlines': top_headlines,
     })
 
 

@@ -7,102 +7,53 @@
     <h2 class="recent-updates-head">Recent Updates</h2>
     <div class="recent-updates">
       <div class="box">
-        <h3>News</h3>
+        <h3>HPC News</h3>
         <ul>
+            {% if news %}
+            {% for new in news %}
           <li>
-            <a href="#">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <a href="{% url 'newsdetail' new.slug %}">
+              <p>{{ new.title }}</p>
             </a>
             <hr>
           </li>
-          <li><a href="#">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            </a>
-            <hr>
-          </li>
-          <li><a href="#">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            </a>
-            <hr>
-          </li>
-          <li><a href="#">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            </a>
-            <hr>
-          </li>
-          <li><a href="#">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            </a>
-            <hr>
-          </li>
+            {% endfor %}
+        {% endif %}
         </ul>
-        <a href="https://techhimalaya.com"><u>>> See More</u></a>
+        <a href="{% url 'newslist' %}"><u>>> See More</u></a>
       </div>
 
       <div class="box">
-        <h3>News</h3>
+        <h3>Recent Science News</h3>
         <ul>
+            {% for headline in top_headlines %}
           <li>
-            <a href="#">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <a href="{{ headline.url }}">
+              <p>{{ headline.title }}</p>
             </a>
             <hr>
           </li>
-          <li><a href="#">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            </a>
-            <hr>
-          </li>
-          <li><a href="#">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            </a>
-            <hr>
-          </li>
-          <li><a href="#">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            </a>
-            <hr>
-          </li>
-          <li><a href="#">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            </a>
-            <hr>
-          </li>
+            {% endfor %}
         </ul>
-        <a href="https://techhimalaya.com"><u>>> See More</u></a>
       </div>
 
       <div class="box">
-        <h3>News</h3>
+        <h3>HPC Notices</h3>
         <ul>
+            {% if notices %}
+            {% for notice in notices %}
           <li>
-            <a href="#">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <a href="{% url 'newsdetail' notice.slug %}">
+              <p>{{ notice.title }}</p>
             </a>
             <hr>
           </li>
-          <li><a href="#">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            </a>
-            <hr>
-          </li>
-          <li><a href="#">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            </a>
-            <hr>
-          </li>
-          <li><a href="#">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            </a>
-            <hr>
-          </li>
-          <li><a href="#">
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            </a>
-            <hr>
-          </li>
-        </ul>
-        <a href="https://techhimalaya.com"><u>>> See More</u></a>
+            {% endfor %}
+                {% else %}
+                <li>
+                <p>No notices available.</p>
+                </li>
+        {% endif %}
       </div>
     </div>
   </section>

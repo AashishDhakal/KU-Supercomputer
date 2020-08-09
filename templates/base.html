@@ -35,17 +35,17 @@
           <span></span>
           <span></span>
         </button>
-        <a href="#">
+        <a href="{% url 'home' %}">
           <h4>Super<span>Computer</span></h4>
         </a>
       </div>
 
       <div class="navbar-menu" id="open-navbar1">
         <ul class="navbar-nav">
-          <li class="active"><a href="#">Home</a></li>
+          <li class="active"><a href="{% url 'home' %}">Home</a></li>
           <li class="navbar-dropdown">
             <a href="#" class="dropdown-toggler" data-dropdown="my-dropdown-id">
-              Categories <i class="fa fa-angle-down"></i>
+              Resources <i class="fa fa-angle-down"></i>
             </a>
             <ul class="dropdown" id="my-dropdown-id">
               <li><a href="#">Actions</a></li>
@@ -58,20 +58,19 @@
           </li>
           <li class="navbar-dropdown">
             <a href="#" class="dropdown-toggler" data-dropdown="blog">
-              Blog <i class="fa fa-angle-down"></i>
+              Media center <i class="fa fa-angle-down"></i>
             </a>
             <ul class="dropdown" id="blog">
-              <li><a href="#">Some category</a></li>
-              <li><a href="#">Some another category</a></li>
+              <li><a href="#">News</a></li>
+                <li class="separator"></li>
+              <li><a href="#">Notices</a></li>
               <li class="separator"></li>
-              <li><a href="#">Seprated link</a></li>
-              <li class="separator"></li>
-              <li><a href="#">One more seprated link.</a></li>
+              <li><a href="#">Events</a></li>
             </ul>
           </li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
-          <li><a href="#">Signin</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'contact' %}">Contact</a></li>
+          <li><a href="{% url 'application' %}">Apply for resource</a></li>
         </ul>
       </div>
     </div>
