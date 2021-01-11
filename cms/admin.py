@@ -3,9 +3,15 @@ from .models import *
 from django_summernote.admin import SummernoteModelAdmin
 # Register your models here.
 
+
 class AboutAdmin(SummernoteModelAdmin):
     summernote_fields = ['details', ]
     list_display = ['main_headline', 'image']
+
+
+class EventAdmin(SummernoteModelAdmin):
+    summernote_fields = ['about', ]
+    prepopulated_fields = {'slug': ('title',)}
 
 
 class NewsAdmin(SummernoteModelAdmin):
@@ -29,7 +35,7 @@ class TeamMemberAdmin(admin.ModelAdmin):
 
 
 class ContactAdmin(admin.ModelAdmin):
-    list_display = ['name', 'email']
+    list_display = ['subject', 'email']
 
 
 admin.site.register(About, AboutAdmin)
@@ -38,3 +44,5 @@ admin.site.register(Sponsor, SponsorAdmin)
 admin.site.register(Gallery, GalleryAdmin)
 admin.site.register(TeamMember, TeamMemberAdmin)
 admin.site.register(ContactInquiry, ContactAdmin)
+admin.site.register(FAQ)
+admin.site.register(Event, EventAdmin)

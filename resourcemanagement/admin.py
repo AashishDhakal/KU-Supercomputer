@@ -14,7 +14,7 @@ approve_application.short_description = "Approve and allocate resources"
 
 class ApplicationAdmin(admin.ModelAdmin):
     actions = [approve_application,]
-    list_display = ['name', 'email', 'employment_type', 'application_purpose', 'institution']
+    list_display = ['email', 'title', 'mobile']
 
 
 admin.site.register(Application, ApplicationAdmin)

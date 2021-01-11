@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="single">
+  <div
+    class="uk-height-medium uk-background-cover uk-light"
+    data-src="https://images.unsplash.com/photo-1490822180406-880c226c150b?fit=crop&w=650&h=433&q=80"
+    data-srcset="https://images.unsplash.com/photo-1490822180406-880c226c150b?fit=crop&w=650&h=433&q=80 650w,
+                  https://images.unsplash.com/photo-1490822180406-880c226c150b?fit=crop&w=1300&h=866&q=80 1300w"
+    data-sizes="(min-width: 650px) 650px, 100vw"
+    uk-img
+  >
+    <div class="uk-height-medium uk-flex uk-flex-middle">
+      <div class="uk-container" style="width: 100%">
+        <h1 class="title">{{ event.title }}</h1>
+      </div>
+    </div>
+  </div>
+  <div class="uk-container">
+    <div class="single-content">
+      <div class="single-content__top">
+        <div class="uk-flex">
+          <div class="image">
+            <img
+              src="{{ event.thumbnail.url }}"
+              alt=""
+            />
+          </div>
+          <div class="rightsection">
+            <div>
+              <div class="type uk-text-capitalize">{{ event.category }}</div>
+            </div>
+            <div class="title">
+              {{ event.title }}
+            </div>
+            <div class="uk-flex speaker">
+              <span uk-icon="icon:microphone"></span>
+              <div class="uk-text speaker-name">Speaker: {{ event.speaker }}</div>
+            </div>
+            <div class="countdown">
+              <div
+                class="uk-grid-small uk-child-width-auto align"
+                uk-grid
+                uk-countdown="date: {{ event.event_date | safe }}"
+              >
+                <div>
+                  <div class="uk-countdown-number uk-countdown-days"></div>
+                  <div
+                    class="uk-countdown-label uk-margin-small uk-text-center uk-visible@s"
+                  >
+                    Days
+                  </div>
+                </div>
+                <div class="uk-countdown-separator">|</div>
+                <div>
+                  <div class="uk-countdown-number uk-countdown-hours"></div>
+                  <div
+                    class="uk-countdown-label uk-margin-small uk-text-center uk-visible@s"
+                  >
+                    Hours
+                  </div>
+                </div>
+                <div class="uk-countdown-separator">|</div>
+                <div>
+                  <div class="uk-countdown-number uk-countdown-minutes"></div>
+                  <div
+                    class="uk-countdown-label uk-margin-small uk-text-center uk-visible@s"
+                  >
+                    Minutes
+                  </div>
+                </div>
+                <div class="uk-countdown-separator">|</div>
+                <div>
+                  <div class="uk-countdown-number uk-countdown-seconds"></div>
+                  <div
+                    class="uk-countdown-label uk-margin-small uk-text-center uk-visible@s"
+                  >
+                    Seconds
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="price">{{ event.price }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="single-content__cta">
+        <div class="uk-flex">
+          <div class="share">
+            <div class="uk-text">Share Our Events with Friends</div>
+            <ul class="share-socialicon uk-flex">
+              <li>
+                <a
+                  href="{% url 'event_detail' event.slug %}"
+                  class="uk-icon-button uk-margin-small-right"
+                  uk-icon="twitter"
+                ></a>
+              </li>
+              <li>
+                <a
+                  href="{% url 'event_detail' event.slug %}"
+                  class="uk-icon-button uk-margin-small-right"
+                  uk-icon="facebook"
+                ></a>
+              </li>
+              <li>
+                <a href="{% url 'event_detail' event.slug %}" class="uk-icon-button" uk-icon="linkedin"></a>
+              </li>
+            </ul>
+          </div>
+          <div class="register-cta">
+            <a href="{{ event.registration_link }}" class="primary-button"> Book Your Seat </a>
+          </div>
+        </div>
+      </div>
+      <div class="single-content__message">
+        <div class="uk-flex">
+          <div class="content">
+            <div class="content-title">About this Event</div>
+            <p class="text">
+              {{ event.about | safe }}
+            </p>
+          </div>
+          <div class="details">
+            <div class="heading">Event Details</div>
+            <ul class="details-list">
+              <li class="details-list__listing">
+                <span uk-icon="calendar" class="uk-margin-small-right"></span>
+                <div class="uk-text">{{ event.event_date.date }}</div>
+              </li>
+              <li class="details-list__listing">
+                <span uk-icon="clock" class="uk-margin-small-right"></span>
+                <div class="uk-text">{{ event.event_date.time }}</div>
+              </li>
+              <li class="details-list__listing">
+                <span uk-icon="location" class="uk-margin-small-right"></span>
+                <div class="uk-text">{{ event.venue }}</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

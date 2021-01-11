@@ -1,182 +1,273 @@
 {% extends 'base.html' %}
-{% load static %}
 {% block content %}
-{% if about %}
-<section class="about-low-area">
-<div class="container">
-<div class="row">
-<div class="col-lg-6 col-md-12">
-<div class="about-caption mb-50">
+ <div
+  class="uk-position-relative uk-visible-toggle uk-light home-slideshow"
+  tabindex="-1"
+  uk-slideshow="animation: fade; autoplay:true"
+>
+  <ul class="uk-slideshow-items slider">
+    <li>
+      <img
+        data-src="https://images.unsplash.com/photo-1485988412941-77a35537dae4?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1372&q=80"
+        alt=""
+        uk-img
+      />
+    </li>
+    <li>
+      <img
+        data-src="https://images.unsplash.com/photo-1448932223592-d1fc686e76ea?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1349&q=80"
+        alt=""
+        uk-img
+      />
+    </li>
+    <li>
+      <img
+        data-src="https://images.unsplash.com/photo-1521790361543-f645cf042ec4?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80"
+        alt=""
+        uk-img
+      />
+    </li>
+  </ul>
 
-<div class="section-tittle mb-35">
-<h2>{{ about.main_headline }}</h2>
+  <a
+    class="uk-position-center-left uk-position-small uk-hidden-hover"
+    href="#"
+    uk-slidenav-previous
+    uk-slideshow-item="previous"
+  ></a>
+  <a
+    class="uk-position-center-right uk-position-small uk-hidden-hover"
+    href="#"
+    uk-slidenav-next
+    uk-slideshow-item="next"
+  ></a>
 </div>
-<p>{{ about.details | safe }}</p>
-</div>
-<div class="row">
-<div class="col-lg-6 col-md-6 col-sm-6 col-xs-10">
-<div class="single-caption mb-20">
-<div class="caption-icon">
-<span class="flaticon-communications-1"></span>
-</div>
-<div class="caption">
-<h5>Where</h5>
-<p>{{ about.where }}</p>
-</div>
-</div>
-</div>
-<div class="col-lg-6 col-md-6 col-sm-6 col-xs-10">
-<div class="single-caption mb-20">
-<div class="caption-icon">
-<span class="flaticon-education"></span>
-</div>
-<div class="caption">
-<h5>When</h5>
-<p>{{ about.when }}</p>
-</div>
-</div>
-</div>
-</div>
-<a href="{{ about.button_url }}" class="btn mt-50">{{ about.button_text }}</a>
-</div>
-<div class="col-lg-6 col-md-12">
-
-<div class="about-img ">
-<div class="about-back-img ">
-<img src="{{ about.image.url }}" alt="">
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-{% endif %}
-
-
-{% if sponsors %}
-<section class="work-company section-padding" style="background: #2e0e8c;margin-top: 20px;">
-<div class="container">
-<div class="row align-items-center">
-<div class="col-lg-5 col-md-8">
-
-<div class="section-tittle section-tittle2 mb-50">
-<h2>Our Top Sponsors and Industry Partners</h2>
-<p>Sponsors, Internet, Technical and Industry Partners</p>
-</div>
-</div>
-<div class="col-lg-7">
-<div class="logo-area">
-<div class="row">
-    {% for sponsor in sponsors %}
-<div class="col-lg-4 col-md-4 col-sm-6">
-<div class="single-logo mb-30">
-    <a href="{{ sponsor.website }}"> <img src="{{ sponsor.logo.url }}" alt="" style="max-width: 200px;"></a>
-    <p style="color: white; text-align: center;">{{ sponsor.partner_type }}</p>
-</div>
-</div>
-    {% endfor %}
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-{% endif %}
-
-{% if news %}
-<section class="home-blog-area section-padding">
-<div class="container">
-
-<div class="row justify-content-center">
-<div class="col-lg-5 col-md-8">
-<div class="section-tittle text-center mb-50">
-<h2>Recent News and Activities at HPC KU</h2>
-<p>Get Updated with Recent News at HPC KU</p>
-</div>
-</div>
-</div>
-<div class="row">
-    {% for new in news %}
-<div class="col-xl-6 col-lg-6 col-md-6">
-<div class="home-blog-single mb-30">
-<div class="blog-img-cap">
-<div class="blog-img">
-<img src="{{ new.thumbnail.url }}" alt="">
-
-<div class="blog-date text-center">
-<span>{{ new.published_date.date }}</span>
-</div>
-</div>
-<div class="blog-cap">
-<p>| {{ new.category }}</p>
-<h3><a href="blog_details.html">{{ new.title }}</a></h3>
-<a href="{% url 'newsdetail' new.slug %}" class="more-btn">Read more »</a>
-</div>
-</div>
-</div>
-</div>
-    {% endfor %}
-</div>
-</div>
-</section>
-{% endif %}
-
-<section class="team-area pt-180 pb-100 section-bg section-padding" style="background: url('{% static 'img/gallery/section_bg02.png' %}');">
-<div class="container">
-<div class="row">
-<div class="col-lg-6 col-md-9">
-
-<div class="section-tittle section-tittle2 mb-50">
-    <h2>Our Team</h2>
-<p>Who made this possible</p>
-<!--<a href="#" class="btn white-btn mt-30">View Spackert</a>-->
-</div>
-</div>
-    {% if teams %}
-    {% for team in teams %}
-<div class="col-lg-3 col-md-4 col-sm-6">
-<div class="single-team mb-30">
-<div class="team-img">
-<img src="{{ team.photo.url }}" alt="">
-
-<ul class="team-social">
-    {% if team.facebook_url %}
-<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-    {% endif %}
-{% if team.twitter_url %}
-<li><a href="#"><i class="fab fa-twitter"></i></a></li>
-{% endif %}
-{% if team.website %}
-<li><a href="#"><i class="fas fa-globe"></i></a></li>
-{% endif %}
-</ul>
-</div>
-<div class="team-caption">
-<h3><a href="#">{{ team.name }}</a></h3>
-<p>{{ team.designation }}</p>
-</div>
-</div>
-</div>
+<div class="uk-container">
+<div class="home-sponsor">
+    <div class="home-sponsor__background">
+    <div class="uk-heading-small  title">
+      Our </br>
+      Sponsors
+    </div>
+    <div class="uk-position-relative uk-visible-toggle slider" tabindex="-1" uk-slider>
+      <ul
+        class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@m uk-grid"
+      >
+          {% if sponsors %}
+          {% for sponsor in sponsors %}
+        <li>
+          <div class="uk-panel">
+            <img
+              src="{{ sponsor.logo.url }}"
+              alt="{{ sponsor.name }}"
+            />
+          </div>
+        </li>
         {% endfor %}
-{% endif %}
+      {% endif %}
+      </ul>
+      <a
+        class="uk-position-center-left uk-position-small uk-hidden-hover"
+        href="#"
+        uk-slidenav-previous
+        uk-slider-item="previous"
+      ></a>
+      <a
+        class="uk-position-center-right uk-position-small uk-hidden-hover"
+        href="#"
+        uk-slidenav-next
+        uk-slider-item="next"
+      ></a>
+    </div>
+  </div>
 </div>
 </div>
-</section>
-{% if galleries %}
-<div class="gallery-area fix">
-<div class="container-fluid p-0">
-<div class="row no-gutters">
-    {% for gallery in galleries %}
-<div class="col-lg-3 col-md-3 col-sm-6">
-<div class="gallery-box">
-<div class="single-gallery">
-<div class="gallery-img " style="background-image: url({{ gallery.image.url }});"></div>
+<div class="home-about" >
+  <div class="uk-container">
+  <div  uk-grid>
+      <div class="uk-width-1-2" >
+        <div class="home-about__content">
+          <div class="uk-heading-bullet small-title uk-text-capitalize">
+            about us
+          </div>
+          <div class="uk-heading-small title">
+            {{ about.main_headline }}
+          </div>
+          <div class="uk-text text">
+            {{ about.details | safe }}
+          </div>
+          <div class="about-cta" >
+            <a href="{{ about.button_url }}">
+              <button class="uk-button uk-button-primary  primary-button">
+              {{ about.button_text }}
+            </button>
+            </a>
+          </div>
+        </div>
+   </div>
+  <div class="uk-width-1-2 uk-child-width-expand@s">
+    <div class="home-about__image">
+      <img src="{{ about.image.url }}" alt="">
+    </div>
+  </div>
+  </div>
 </div>
 </div>
+<div id="modal-media-youtube" class="uk-flex-top" uk-modal>
+    <div class="uk-modal-dialog uk-width-auto uk-margin-auto-vertical">
+        <button class="uk-modal-close-outside" type="button" uk-close></button>
+        <iframe src="{{ about.video_url }}" width="1920" height="1080" frameborder="0" uk-video uk-responsive></iframe>
+    </div>
 </div>
-    {% endfor %}
+<div class="home-applyresource">
+ 
+  <div class="uk-container">
+    <div class="uk-grid-collapse"  uk-grid >
+   
+    <div class="home-applyresource__video" >
+      <a href="#modal-media-youtube" uk-icon="icon: play; ratio:3" class="uk-icon-button" uk-toggle></a>
+     
+    </div>
+      <div id="modal-video" class="uk-flex-top" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+      <iframe src="{{ about.video_url }}" width="1920" height="1080" frameborder="0" controls playsinline uk-video uk-responsive></iframe>
+    </div>
 </div>
+    <div class="home-applyresource__content">
+      <div class="uk-heading-small title ">
+        {{ about.video_title }}
+      </div>
+      <div class="uk-text text">
+       {{ about.video_description }}
+      </div>
+      <div class="resource-cta">
+        <a href="{{ about.video_button_url }}">
+          <button class="uk-button uk-button-primary">
+            {{ about.video_button_text }}
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+  </div>
 </div>
+<div class="home-ourteam">
+  <div class="uk-container">
+      <div class="uk-heading-small uk-text-capitalize small-title">
+        our researcher
+      </div>
+      <div class="uk-heading-small title ">
+        Meet Our Researcher
+      </div>
+      <div class="uk-text text uk-text-center">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed tempora architecto ratione mollitia doloremque dolore, provident, sit voluptate rerum obcaecati ducimus impedit officia ab eaque quam dolorum quibusdam debitis officiis.
+      </div>
+      <div class="home-ourteam__content">
+        <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider="sets: true">
+    <ul class="uk-slider-items uk-child-width-1-4 uk-child-width-1-4" uk-grid>
+        <li>
+            {% if team %}
+            {% for team in teams %}
+           <div class="team-card">
+           <div class="team-card__img">
+              <img src="{{ team.photo.url }}" alt="">
+           </div>
+           <div class="team-card__content">
+             <div class="name">
+               {{ team.name }}
+             </div>
+              <div class="email">
+               <a href="mailto:{{ team.email }}">
+                 {{ team.email }}
+               </a>
+             </div>
+           </div>
+        </div>
+            {% endfor %}
+        {% endif %}
+        </li>
+      </ul>
+       <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+      </div>
+    </div>
+  </div>
 </div>
-{% endif %}
+
+<div class="home-news">
+  <div class="small-title uk-text-center uk-heading-small">
+    Our News & Events
+  </div>
+  <div class="title uk-heading-small ">
+    Keep Upto Date About Us
+  </div>
+  <div class="home-news__content">
+   <div class="uk-container">
+      <div uk-grid>
+      <div class="uk-width-3-5">
+        <div class="news-card large">
+          <div class="news-card__image">
+            <img src="{{ latest_news.thumbnail.url }}" alt="">
+          </div>
+          <div class="news-card__content">
+            <div class="info">
+              <div class="date">
+                <span uk-icon="icon: calendar;" ></span>
+                {{ latest_news.published_date.date }}
+              </div>
+              <div class="author">
+                <span uk-icon="icon: user;" ></span>
+                By Admin
+              </div>
+            </div>
+            <a href="">
+              <div class="heading">
+                 {{ latest_news.title }}
+              </div>
+            </a>
+            <div class="description">
+                {{ latest_news.detail | safe }}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="uk-width-2-5">
+        <ul class="list">
+            {% if news %}
+            {% for new in news %}
+          <div class="news-card small">
+            <div class="news-card__image">
+              <img src="{{ new.thumbnail.url }}" alt="">
+            </div>
+            <div class="news-card__content">
+              <div class="info">
+              <div class="date">
+                <span uk-icon="icon: calendar;" ></span>
+                {{ new.published_date.date }}
+              </div>
+              <div class="author">
+                <span uk-icon="icon: user;" ></span>
+                {{ new.category }}
+              </div>
+            </div>
+              <a href="">
+              <div class="heading uk-text-truncate">
+                 {{ new.title }}
+              </div>
+            </a>
+            <div class="description">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+            </div>
+            </div>
+          </div>
+                {% endfor %}
+            {% endif %}
+        </ul>
+      </div>
+    </div>
+   </div>
+  </div>
+</div>
 {% endblock %}

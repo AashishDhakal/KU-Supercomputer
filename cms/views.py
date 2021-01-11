@@ -10,18 +10,19 @@ from .tasks import get_news_headline
 
 def index(request):
     about = About.objects.first()
-    news = News.objects.all().order_by('-published_date')[:3]
+    news = News.objects.all().order_by('-published_date')[:5]
+    latest_news = news.first()
+    news = news[1:]
     teams = TeamMember.objects.all()
     galleries = Gallery.objects.all()
     sponsors = Sponsor.objects.all()
-    top_headlines = get_news_headline.delay()
     return render(request, 'index.html', {
         'about': about,
         'news': news,
+        'latest_news': latest_news,
         'teams': teams,
         'galleries': galleries,
         'sponsors': sponsors,
-        'top_headlines': top_headlines,
     })
 
 
@@ -33,7 +34,7 @@ class ContactView(SuccessMessageMixin, CreateView):
     success_message = "Query Submitted, we will reach out to you very soon."
 
 
-def aboutview(request):
+def about_view(request):
     about = About.objects.first()
     galleries = Gallery.objects.all()
 
@@ -43,15 +44,30 @@ def aboutview(request):
     })
 
 
-def newslistview(request):
+def news_list_view(request):
     news = News.objects.all().order_by('-published_date')
     return render(request, 'blog.html', {
         'news': news,
     })
 
 
-def newsdetailview(request, slug):
+def news_detail_view(request, slug):
     news = get_object_or_404(News, slug=slug)
     return render(request, 'blog_details.html', {
         'news': news,
+    })
+
+
+def event_list_view(request):
+    events = Event.objects.all().order_by('-event_date')
+    return render(request, 'event.html', {
+        'events': events,
+    })
+
+
+def event_detail_view(request, slug):
+    event = get_object_or_404(Event, slug=slug)
+    print(event.event_date)
+    return render(request, 'eventdetail.html', {
+        'event': event,
     })

@@ -1,238 +1,236 @@
 {% load static %}
-<!doctype html>
-<html class="no-js" lang="zxx">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>HPC Kathmandu University</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="{% static 'img/apple-touch-icon.png' %}"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="img/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="img/favicon-16x16.png"
+    />
+    <link rel="manifest" href="img/site.webmanifest" />
+    <link rel="mask-icon" href="img/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta property="og:title" content="KU Supercomputer" />
+    <meta name="description" content=" " />
+    <meta property="og:url" content="http://www" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/uikit.min.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}" type="text/css" />
+    <link href="https://unpkg.com/pattern.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" />
+  </head>
 
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-<head>
-<meta charset="utf-8">
-<meta http-equiv="x-ua-compatible" content="ie=edge">
-<title> High Performance Computing | Kathmandu University </title>
-<meta name="description" content="">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="shortcut icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
-
-<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
-<link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
-<link rel="stylesheet" href="{% static 'css/slicknav.css' %}">
-<link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
-<link rel="stylesheet" href="{% static 'css/gijgo.css' %}">
-<link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
-<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
-<link rel="stylesheet" href="{% static 'css/fontawesome-all.min.css' %}">
-<link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
-<link rel="stylesheet" href="{% static 'css/slick.css' %}">
-<link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
-
-<header>
-
-<div class="header-area">
-<div class="main-header header-sticky">
-<div class="container-fluid">
-<div class="row align-items-center">
-
-<div class="col-xl-2 col-lg-2 col-md-1">
-<div class="logo">
-<a href="{% url 'home' %}"><img src="{% static 'img/logo/logo.png' %}" alt=""></a>
-</div>
-</div>
-<div class="col-xl-10 col-lg-10 col-md-10">
-<div class="menu-main d-flex align-items-center justify-content-end">
-
-<div class="main-menu f-right d-none d-lg-block">
-<nav>
-<ul id="navigation">
-<li><a href="{% url 'home' %}">Home</a></li>
-<li><a href="{% url 'about' %}">About</a></li>
-<li><a href="#">Resources</a></li>
-<li><a href="{% url 'newslist' %}">News</a>
-</li>
-<li><a href="{% url 'contact' %}">Contact</a></li>
-</ul>
-</nav>
-</div>
-<div class="header-right-btn f-right d-none d-lg-block ml-30">
-<a href="{% url 'application' %}" class="btn header-btn">Apply for resource</a>
-</div>
-</div>
-</div>
-
-<div class="col-12">
-<div class="mobile_menu d-block d-lg-none"></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
+  <body>
+     <header>
+  <div class="navbar-top">
+    <div class="uk-container flex">
+      <ul class="navbar-top__contact">
+        <li class="email">
+          <a href="mailto:">
+            <span uk-icon="icon: mail;" class="uk-icon"></span>
+            info@ashish.com
+          </a>
+        </li>
+        <li class="phone">
+          <a href="tel:">
+            <span uk-icon="icon: receiver;"></span>
+            + 9812345678
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-top__social">
+        <li class="socialicon">
+          <span class="text"> Follow Us: </span>
+          <a href="fb.com">
+            <span uk-icon="icon: facebook;" class="uk-icon-button"></span>
+          </a>
+          <a href="youtube.com">
+            <span uk-icon="icon: youtube; " class="uk-icon-button"></span>
+          </a>
+          <a href="twitter.com">
+            <span uk-icon="icon: twitter; " class="uk-icon-button"></span>
+          </a>
+        </li>
+        <li>
+          <a href="{% url 'application' %}" class="uk-button uk-button-primary"
+            >request for resource</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div
+    uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent top: 200"
+  >
+    <nav class="uk-navbar-container navbar-main">
+      <div class="uk-container uk-container">
+        <div uk-navbar class="flex">
+          <div class="logo">
+            <a href="{% url 'home' %}">
+              <img src="{% static 'img/hpclogo.png' %}" alt="" />
+            </a>
+          </div>
+          <ul class="uk-navbar-nav">
+            <li class="uk-active"><a href="#">home</a></li>
+            <li><a href="#">about us</a></li>
+            <li><a href="#">teams</a></li>
+            <li><a href="{% url 'event_list' %}">events</a></li>
+            <li><a href="#">news & blogs</a></li>
+            <li><a href="{% url 'contact' %}">contact us</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
 </header>
-<main>
-    {% block content %}
-    {% endblock %}
-</main>
+{% block content %}
+
+
+{% endblock %}
 <footer>
+  <div class="uk-container">
+    <div uk-grid>
+      <div class="uk-width-1-3">
+        <div class="footer-content">
+          <div class="logo">
+            <a href="index.html">
+              <img src="{% static 'img/hpclogowhite.png' %}" alt="" />
+            </a>
+          </div>
+          <div class="uk-text text">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi
+            cum, architecto nulla dolorem tempora ratione laudantium velit
+            obcaecati repellendus sapiente ipsa dicta voluptates exercitationem
+            ab veniam, quae nobis quidem saepe!
+          </div>
+          <ul class="footer-content__social">
+            <li>
+              <a href="fb.com">
+                <span uk-icon="icon: facebook;" class="uk-icon-button"></span>
+              </a>
+            </li>
+            <li>
+              <a href="youtube.com">
+                <span uk-icon="icon: youtube; " class="uk-icon-button"></span>
+              </a>
+            </li>
+            <li>
+              <a href="twitter.com">
+                <span uk-icon="icon: twitter; " class="uk-icon-button"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="uk-width-1-3">
+        <div class="footer-content">
+          <div class="footer-content__title uk-heading-small">Quick Links</div>
+          <div uk-grid>
+            <div class="uk-width-1-2">
+              <ul class="uk-list uk-list-hyphen uk-list-secondary">
+                <li class="uk-text-capitalize">
+                  <a href="index.html">Home</a>
+                </li>
+                <li><a href="about.html">about us</a></li>
+                <li><a href="teams.html">our teams</a></li>
+                <li><a href="news.html">news & events</a></li>
 
-<div class="footer-area footer-padding">
-<div class="container">
-<div class="row d-flex justify-content-between">
-<div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-<div class="single-footer-caption mb-50">
-<div class="single-footer-caption mb-30">
-<div class="footer-tittle">
-<h4>About Us</h4>
-<div class="footer-pera">
-<p>Heaven frucvitful doesn't cover lesser dvsays appear creeping seasons so behold.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
-<div class="single-footer-caption mb-50">
-<div class="footer-tittle">
-<h4>Contact Info</h4>
-<ul>
-<li>
-<p>Address :Your address goes here, your demo address.</p>
-</li>
-<li><a href="#">Phone : +8880 44338899</a></li>
-<li><a href="#">Email : <span class="__cf_email__" data-cfemail="a8c1c6cec7e8cbc7c4c7dac4c1ca86cbc7c5">[email&#160;protected]</span></a></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
-<div class="single-footer-caption mb-50">
-<div class="footer-tittle">
-<h4>Important Link</h4>
-<ul>
-<li><a href="#"> View Project</a></li>
-<li><a href="#">Contact Us</a></li>
-<li><a href="#">Testimonial</a></li>
-<li><a href="#">Proparties</a></li>
-<li><a href="#">Support</a></li>
-</ul>
-</div>
-</div>
-</div>
-<div class="col-xl-3 col-lg-3 col-md-6 col-sm-5">
-<div class="single-footer-caption mb-50">
-<div class="footer-tittle">
-<h4>Newsletter</h4>
-<div class="footer-pera footer-pera2">
-<p>Heaven fruitful doesn't over lesser in days. Appear creeping.</p>
-</div>
+                <li><a href="contact.html">contact us</a></li>
+              </ul>
+            </div>
+            <div class="uk-width-1-2">
+              <ul class="uk-list uk-list-hyphen uk-list-secondary">
+                <li class="uk-text-capitalize">
+                  <a href="index.html">Request Resource</a>
+                </li>
+                <li><a href="about.html">Blogs</a></li>
+                <li><a href="teams.html">Upcoming events</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
 
-<div class="footer-form">
-<div id="mc_embed_signup">
-<form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01" method="get" class="subscribe_form relative mail_part">
-<input type="email" name="email" id="newsletter-form-email" placeholder="Email Address" class="placeholder hide-on-focus" onfocus="if (!window.__cfRLUnblockHandlers) return false; this.placeholder = ''" onblur="if (!window.__cfRLUnblockHandlers) return false; this.placeholder = ' Email Address '" data-cf-modified-e108465973b1c867d2ec03f2-="">
-<div class="form-icon">
-<button type="submit" name="submit" id="newsletter-submit" class="email_icon newsletter-submit button-contactForm"><img src="{% static '' %}img/gallery/form.png" alt=""></button>
-</div>
-<div class="mt-10 info"></div>
-</form>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<div class="row footer-wejed justify-content-between">
-<div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-
-<div class="footer-logo mb-20">
-<a href="{% url 'home' %}"><!--<img src="{% static 'img/logo/logo2_footer.png' %}" alt="">--></a>
-</div>
-</div>
-<div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
-<div class="footer-tittle-bottom">
-<span>5000+</span>
-<p>Nodes</p>
-</div>
-</div>
-<div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
-<div class="footer-tittle-bottom">
-<span>451</span>
-<p>Storage</p>
-</div>
-</div>
-<div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
-
-<div class="footer-tittle-bottom">
-<span>568</span>
-<p>Bandwidth</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<div class="footer-bottom-area footer-bg">
-<div class="container">
-<div class="footer-border">
-<div class="row d-flex justify-content-between align-items-center">
-<div class="col-xl-10 col-lg-8 ">
-<div class="footer-copy-right">
-<p>
-Copyright &copy;<script type="e108465973b1c867d2ec03f2-text/javascript">document.write(new Date().getFullYear());</script> All rights reserved HPC Kathmandu University| Powered by <a href="https://techhimalaya.com/" target="_blank">Tech Himalaya</a>
-</p>
-</div>
-</div>
-<div class="col-xl-2 col-lg-4">
-<div class="footer-social f-right">
-<a href="#"><i class="fab fa-twitter"></i></a>
-<a href="https://www.facebook.com/sai4ull"><i class="fab fa-facebook-f"></i></a>
-<a href="#"><i class="fas fa-globe"></i></a>
-<a href="#"><i class="fab fa-behance"></i></a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-
+      <div class="uk-width-1-3">
+        <div class="footer-content">
+          <div class="footer-content__title uk-heading-small">Contact Us</div>
+          <ul class="uk-list contact-list">
+            <li>
+              <div class="flex">
+                <span uk-icon="icon: location"></span>
+                <div class="uk-text">Anamnagar-2, Kathmandu-Bagmati, Nepal</div>
+              </div>
+            </li>
+            <li>
+              <div class="flex">
+                <span uk-icon="icon: receiver"></span>
+                <div class="uk-text">+977-9810132504, 01-234556</div>
+              </div>
+            </li>
+            <li>
+              <div class="flex">
+                <span uk-icon="icon: mail"></span>
+                <div class="uk-text">ashishbro@hpc.com.np</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div uk-grid>
+      <div class="uk-width-1-1">
+        <div class="footer-copyright">
+          <div class="uk-text">
+            &copy; Copyright 2021 HPC KU. All Right Reserved.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </footer>
 
-<div id="back-top">
-<a title="Go to Top" href="#"> <i class="fas fa-level-up-alt"></i></a>
-</div>
-
-<script src="{% static 'js/vendor/modernizr-3.5.0.min.js' %}" type="e108465973b1c867d2ec03f2-text/javascript"></script>
-
-<script src="{% static 'js/vendor/jquery-1.12.4.min.js' %}" type="e108465973b1c867d2ec03f2-text/javascript"></script>
-<script src="{% static 'js/popper.min.js' %}" type="e108465973b1c867d2ec03f2-text/javascript"></script>
-<script src="{% static 'js/bootstrap.min.js' %}" type="e108465973b1c867d2ec03f2-text/javascript"></script>
-
-<script src="{% static 'js/jquery.slicknav.min.js' %}" type="e108465973b1c867d2ec03f2-text/javascript"></script>
-
-<script src="{% static 'js/owl.carousel.min.js' %}" type="e108465973b1c867d2ec03f2-text/javascript"></script>
-<script src="{% static 'js/slick.min.js' %}" type="e108465973b1c867d2ec03f2-text/javascript"></script>
-
-<script src="{% static 'js/wow.min.js' %}" type="e108465973b1c867d2ec03f2-text/javascript"></script>
-<script src="{% static 'js/animated.headline.js' %}" type="e108465973b1c867d2ec03f2-text/javascript"></script>
-<script src="{% static 'js/jquery.magnific-popup.js' %}" type="e108465973b1c867d2ec03f2-text/javascript"></script>
-
-<script src="{% static 'js/gijgo.min.js' %}" type="e108465973b1c867d2ec03f2-text/javascript"></script>
-
-<script src="{% static 'js/jquery.nice-select.min.js' %}" type="e108465973b1c867d2ec03f2-text/javascript"></script>
-<script src="{% static 'js/jquery.sticky.js' %}" type="e108465973b1c867d2ec03f2-text/javascript"></script>
-
-<script src="{% static 'js/jquery.counterup.min.js' %}" type="e108465973b1c867d2ec03f2-text/javascript"></script>
-<script src="{% static 'js/waypoints.min.js' %}" type="e108465973b1c867d2ec03f2-text/javascript"></script>
-<script src="{% static 'js/jquery.countdown.min.js' %}" type="e108465973b1c867d2ec03f2-text/javascript"></script>
-
-<script src="{% static 'js/contact.js' %}" type="e108465973b1c867d2ec03f2-text/javascript"></script>
-<script src="{% static 'js/jquery.form.js' %}" type="e108465973b1c867d2ec03f2-text/javascript"></script>
-<script src="{% static 'js/jquery.validate.min.js' %}" type="e108465973b1c867d2ec03f2-text/javascript"></script>
-<script src="{% static 'js/mail-script.js' %}" type="e108465973b1c867d2ec03f2-text/javascript"></script>
-<script src="{% static 'js/jquery.ajaxchimp.min.js' %}" type="e108465973b1c867d2ec03f2-text/javascript"></script>
-
-<script src="{% static 'js/plugins.js' %}" type="e108465973b1c867d2ec03f2-text/javascript"></script>
-<script src="{% static 'js/main.js' %}" type="e108465973b1c867d2ec03f2-text/javascript"></script>
-
-</body>
+  </body>
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"
+  ></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/uikit.min.js' %}"></script>
+  <script src="{% static 'js/uikit-icons.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/aos.js' %}"></script>
+  <script src="{% static 'js/blueimp-gallery.min.js' %}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+  <script src="{% static 'js/scroll.js' %}"></script>
+  <script>
+    AOS.init();
+  </script>
 </html>

@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+ <div class="request">
+  <div
+    class="uk-height-medium uk-background-cover uk-light"
+    data-src="https://images.unsplash.com/photo-1490822180406-880c226c150b?fit=crop&w=650&h=433&q=80"
+    data-srcset="https://images.unsplash.com/photo-1490822180406-880c226c150b?fit=crop&w=650&h=433&q=80 650w,
+                  https://images.unsplash.com/photo-1490822180406-880c226c150b?fit=crop&w=1300&h=866&q=80 1300w"
+    data-sizes="(min-width: 650px) 650px, 100vw"
+    uk-img
+  >
+    <div class="uk-height-medium uk-flex uk-flex-middle">
+      <div class="uk-container" style="width: 100%">
+        <h1 class="title">Request for Resource</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="resource-content">
+    <div class="uk-container">
+      <div class="resource-content__form">
+        <div class="logo">
+          <img src="{% static 'img/hpclogo.png' %}" width="100" height="100" alt="" />
+        </div>
+        <div class="heading uk-text-center">Request Form</div>
+        <div class="text uk-text-center">
+          Fill up the form to request for resource
+        </div>
+        <form action="" class="requestform">
+          <div class="uk-grid-small" uk-grid>
+            <div class="uk-width-1-2@m">
+              <div class="uk-form-label">
+                First Name <span class="mandatory">*</span>
+              </div>
+              <input
+                class="uk-input"
+                type="text"
+                placeholder="Your First Name"
+                required
+              />
+            </div>
+            <div class="uk-width-1-2@m">
+              <div class="uk-form-label">
+                Last Name <span class="mandatory">*</span>
+              </div>
+              <input
+                class="uk-input"
+                type="text"
+                placeholder="Your Last Name"
+                required
+              />
+            </div>
+            <div class="uk-width-1-2@s">
+              <div class="uk-form-label">
+                Email <span class="mandatory">*</span>
+              </div>
+              <input
+                class="uk-input"
+                type="text"
+                placeholder="Your Email Address"
+                required
+              />
+            </div>
+            <div class="uk-width-1-2@s">
+              <div class="uk-form-label">
+                Mobile Number <span class="mandatory">*</span>
+              </div>
+              <input
+                class="uk-input"
+                type="text"
+                placeholder="Your Mobile Number"
+                required
+              />
+            </div>
+            <div class="uk-width-1-1">
+              <div class="uk-form-label">
+                Request Title <span class="mandatory">*</span>
+              </div>
+              <input
+                class="uk-input"
+                type="text"
+                placeholder="Your Request Title"
+                required
+              />
+            </div>
+            <div class="uk-width-1-1">
+              <div class="uk-form-label">
+                Request Message <span class="mandatory">*</span>
+              </div>
+              <textarea
+                class="uk-textarea"
+                rows="5"
+                placeholder="Your Request Message"
+                required
+              ></textarea>
+            </div>
+            <div class="uk-width-1-1">
+              <div class="uk-form-label">Any Queries</div>
+              <textarea
+                class="uk-textarea"
+                rows="5"
+                placeholder="Please enter if you have any queries"
+              ></textarea>
+            </div>
+            <div class="uk-margin">
+              <button class="primary-button">Submit Request Form</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="resource-content__faq">
+      <div class="uk-container">
+        <div class="faqwidth">
+          <div class="heading uk-text-center">FAQ</div>
+          <div class="text uk-text-center">
+            Please check FAQ before asking any queries
+          </div>
+          <ul uk-accordion>
+              {% if faqs %}
+                {% for faq in faqs %}
+            <li>
+              <a class="uk-accordion-title" href="#">{{ faq.question }}</a>
+              <div class="uk-accordion-content">
+                <p>
+                  {{ faq.answer }}
+                </p>
+              </div>
+            </li>
+              {% endfor %}
+          {% endif %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
