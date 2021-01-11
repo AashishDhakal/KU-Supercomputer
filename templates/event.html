@@ -23,7 +23,7 @@
       <div uk-grid>
           {% if events %}
           {% for event in events %}
-        <div class="uk-width-1-3">
+        <div class="uk-width-1-3@l uk-width-1-2@m uk-width-1-2@s">
           <div class="events-card">
             <div class="events-card__image">
               <a href="{% url 'event_detail' event.slug %}">

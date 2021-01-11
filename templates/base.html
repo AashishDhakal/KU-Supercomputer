@@ -48,7 +48,7 @@
   </head>
 
   <body>
-     <header>
+    <header>
   <div class="navbar-top">
     <div class="uk-container flex">
       <ul class="navbar-top__contact">
@@ -79,7 +79,7 @@
           </a>
         </li>
         <li>
-          <a href="{% url 'application' %}" class="uk-button uk-button-primary"
+          <a href="requestresource.html" class="uk-button uk-button-primary"
             >request for resource</a
           >
         </li>
@@ -93,18 +93,51 @@
       <div class="uk-container uk-container">
         <div uk-navbar class="flex">
           <div class="logo">
-            <a href="{% url 'home' %}">
+            <a href="index.html">
               <img src="{% static 'img/hpclogo.png' %}" alt="" />
             </a>
           </div>
+
+          <a
+            class="uk-navbar-toggle"
+            uk-toggle="target: #offcanvas-flip"
+            href="#"
+          >
+            <span uk-navbar-toggle-icon></span>
+            <span class="uk-margin-small-left">Menu</span>
+          </a>
           <ul class="uk-navbar-nav">
             <li class="uk-active"><a href="#">home</a></li>
-            <li><a href="#">about us</a></li>
-            <li><a href="#">teams</a></li>
-            <li><a href="{% url 'event_list' %}">events</a></li>
-            <li><a href="#">news & blogs</a></li>
-            <li><a href="{% url 'contact' %}">contact us</a></li>
+            <li><a href="about.html">about us</a></li>
+            <li><a href="events.html">events</a></li>
+            <li><a href="news.html">news & blogs</a></li>
+            <li><a href="contact.html">contact us</a></li>
           </ul>
+          <div id="offcanvas-flip" uk-offcanvas="overlay: true; flip:true">
+            <div class="uk-offcanvas-bar">
+              <button
+                class="uk-offcanvas-close"
+                type="button"
+                uk-close
+              ></button>
+
+              <ul class="uk-nav uk-nav-default">
+                <li class="uk-active"><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About Us</a></li>
+                <li><a href="{% url 'event_list' %}">Events</a></li>
+                <li><a href="news.html">News & Blogs</a></li>
+                <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                <li class="uk-nav-divider"></li>
+                <li>
+                  <a
+                    href="{% url 'application' %}"
+                    class="uk-button primary-button"
+                    >request for resource</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </nav>
@@ -117,7 +150,7 @@
 <footer>
   <div class="uk-container">
     <div uk-grid>
-      <div class="uk-width-1-3">
+      <div class="uk-width-1-3@l uk-width-1-2@m uk-width-1-1@s">
         <div class="footer-content">
           <div class="logo">
             <a href="index.html">
@@ -149,7 +182,7 @@
           </ul>
         </div>
       </div>
-      <div class="uk-width-1-3">
+      <div class="uk-width-1-3@l uk-width-1-2@m uk-width-1-1@s">
         <div class="footer-content">
           <div class="footer-content__title uk-heading-small">Quick Links</div>
           <div uk-grid>
@@ -178,7 +211,7 @@
         </div>
       </div>
 
-      <div class="uk-width-1-3">
+      <div class="uk-width-1-3@l uk-width-1-2@m uk-width-1-1@s">
         <div class="footer-content">
           <div class="footer-content__title uk-heading-small">Contact Us</div>
           <ul class="uk-list contact-list">
