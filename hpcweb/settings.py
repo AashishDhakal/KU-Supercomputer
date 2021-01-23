@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -158,14 +159,6 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 SCRIPT_DIR = os.path.join(BASE_DIR, 'scripts')
 
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.yandex.com'
-EMAIL_PORT = '465'
-EMAIL_HOST_USER = 'admin@techhimalaya.com'
-EMAIL_HOST_PASSWORD = '2020@techhimalaya'
-EMAIL_USE_TLS = False
-EMAIL_USE_SSL = True
-
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 REDIS_HOST = 'localhost'
@@ -173,3 +166,12 @@ REDIS_PORT = '6379'
 BROKER_URL = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
 BROKER_TRANSPORT_OPTIONS = {'visibility_timeout': 3600}
 CELERY_RESULT_BACKEND = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
+
+try:
+    env_local = config('HPC_LOCAL')
+    if env_local.lower() == 'local':
+        from hpcweb.local import *
+    else:
+        from hpcweb.server import *
+except AttributeError:
+    from hpcweb.server import *
