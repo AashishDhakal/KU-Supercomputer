@@ -475,6 +475,7 @@ footer .footer-content .contact-list .flex span {
 footer .footer-copyright {
   border-top: 1px solid #eee;
   padding: 1.5rem 0 0 0;
+  margin-top: 1.5rem;
 }
 
 footer .footer-copyright .uk-text {

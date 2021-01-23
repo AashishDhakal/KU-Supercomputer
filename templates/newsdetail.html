@@ -3,13 +3,13 @@
 <div class="news">
   <div class="uk-container">
     <div class="news-content">
-      <div class="news-content__tag uk-text-capitalize">educational</div>
+      <div class="news-content__tag uk-text-capitalize">{{ news.category }}</div>
       <div class="title">
-        Story of the Revival village of the Nepal, learning through technology.
+        {{ news.title }}
       </div>
       <div class="news-content__image">
         <img
-          src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80"
+          src="{{ news.thumbnail.url }}"
           alt=""
         />
       </div>
@@ -21,14 +21,14 @@
                 uk-icon="user"
                 class="uk-icon-button uk-margin-small-right"
               ></span>
-              <div class="uk-text">By Ashish Dhakal</div>
+              <div class="uk-text">By {{ news.author }}</div>
             </div>
             <div class="date uk-flex">
               <span
                 uk-icon="calendar"
                 class="uk-icon-button uk-margin-small-right"
               ></span>
-              <div class="uk-text">10 Jan, 2020</div>
+              <div class="uk-text">{{ news.published_date }}</div>
             </div>
           </div>
           <div class="share uk-flex">
@@ -36,41 +36,27 @@
             <ul class="share-socialicon uk-flex">
               <li>
                 <a
-                  href=""
+                  href="http://www.facebook.com/sharer/sharer.php?u=http://hpc.ku.edu.np{% url 'news_detail' news.slug %}"
                   class="uk-icon-button uk-margin-small-right"
                   uk-icon="twitter"
                 ></a>
               </li>
               <li>
                 <a
-                  href=""
+                  href="http://www.facebook.com/sharer/sharer.php?u=http://hpc.ku.edu.np{% url 'news_detail' news.slug %}"
                   class="uk-icon-button uk-margin-small-right"
                   uk-icon="facebook"
                 ></a>
               </li>
               <li>
-                <a href="" class="uk-icon-button" uk-icon="linkedin"></a>
+                <a href="http://www.facebook.com/sharer/sharer.php?u=http://hpc.ku.edu.np{% url 'news_detail' news.slug %}" class="uk-icon-button" uk-icon="linkedin"></a>
               </li>
             </ul>
           </div>
         </div>
       </div>
       <div class="news-content__description text">
-        <p class="text">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magni
-          perferendis eum molestiae ratione totam alias facere, cum quasi aut
-          deleniti asperiores id facilis eius? Quisquam molestias laudantium
-          numquam tempora. Soluta?
-        </p>
-        <p class="text">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-          excepturi nisi minus aliquid nulla necessitatibus magni, molestias, ea
-          debitis sapiente aut commodi rerum reprehenderit corrupti esse fuga
-          cumque fugit a. Lorem ipsum dolor sit amet consectetur adipisicing
-          elit. Ea laboriosam sapiente architecto inventore cumque asperiores
-          numquam provident eligendi dicta. Voluptatem perspiciatis cumque,
-          omnis laboriosam aliquam voluptates nam? Ipsa, cum sed?
-        </p>
+        {{ news.detail | safe }}
       </div>
     </div>
     <div class="news-slides">
@@ -78,99 +64,38 @@
         <div class="heading">Recommedation for you</div>
         <div class="news-slides__content">
           <div uk-grid>
+              {% if recommended_news %}
+              {% for news in recommended_news %}
             <div class="uk-width-1-3@l uk-width-1-2@m uk-width-1-1@s">
               <div class="events-card">
                 <div class="events-card__image">
-                  <a href="newssingle.html">
+                  <a href="{% url 'news_detail' news.slug %}">
                     <img
-                      src="https://images.unsplash.com/photo-1573495804669-cd114be49e90?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                      src="{{ news.thumbnail.url }}"
                       alt=""
                     />
                   </a>
                 </div>
                 <div class="events-card__content">
-                  <div class="type uk-text-capitalize">educational</div>
-                  <a href="newssingle.html">
+                  <div class="type uk-text-capitalize">{{ news.category }}</div>
+                  <a href="{% url 'news_detail' news.slug %}">
                     <div class="title">
-                      How to make a Noob Tilt and rage quit
+                      {{ news.title }}
                     </div>
                   </a>
                   <div class="uk-text-light text">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Quas explicabo labore distinctio, autem assumenda
-                    recusandae? Possimus, qui eum similique velit, fuga
-                    voluptatem amet modi hic in tempora iusto magnam? Deserunt.
+                   {{ news.detail | safe }}
                   </div>
                   <div class="readmore">
-                    <a class="uk-button uk-button-text" href="newssingle.html"
+                    <a class="uk-button uk-button-text" href="{% url 'news_detail' news.slug %}"
                       >Read more</a
                     >
                   </div>
                 </div>
               </div>
             </div>
-            <div class="uk-width-1-3@l uk-width-1-2@m uk-width-1-1@s">
-              <div class="events-card">
-                <div class="events-card__image">
-                  <a href="newssingle.html">
-                    <img
-                      src="https://images.unsplash.com/photo-1573495804669-cd114be49e90?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-                      alt=""
-                    />
-                  </a>
-                </div>
-                <div class="events-card__content">
-                  <div class="type uk-text-capitalize">educational</div>
-                  <a href="newssingle.html">
-                    <div class="title">
-                      How to make a Noob Tilt and rage quit
-                    </div>
-                  </a>
-                  <div class="uk-text-light text">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Quas explicabo labore distinctio, autem assumenda
-                    recusandae? Possimus, qui eum similique velit, fuga
-                    voluptatem amet modi hic in tempora iusto magnam? Deserunt.
-                  </div>
-                  <div class="readmore">
-                    <a class="uk-button uk-button-text" href="newssingle.html"
-                      >Read more</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="uk-width-1-3@l uk-width-1-2@m uk-width-1-1@s">
-              <div class="events-card">
-                <div class="events-card__image">
-                  <a href="newssingle.html">
-                    <img
-                      src="https://images.unsplash.com/photo-1573495804669-cd114be49e90?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-                      alt=""
-                    />
-                  </a>
-                </div>
-                <div class="events-card__content">
-                  <div class="type uk-text-capitalize">educational</div>
-                  <a href="newssingle.html">
-                    <div class="title">
-                      How to make a Noob Tilt and rage quit
-                    </div>
-                  </a>
-                  <div class="uk-text-light text">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                    Quas explicabo labore distinctio, autem assumenda
-                    recusandae? Possimus, qui eum similique velit, fuga
-                    voluptatem amet modi hic in tempora iusto magnam? Deserunt.
-                  </div>
-                  <div class="readmore">
-                    <a class="uk-button uk-button-text" href="newssingle.html"
-                      >Read more</a
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
+              {% endfor %}
+          {% endif %}
           </div>
         </div>
       </div>

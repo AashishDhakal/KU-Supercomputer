@@ -45,21 +45,23 @@ def about_view(request):
 
 
 def news_list_view(request):
-    news = News.objects.all().order_by('-published_date')
-    return render(request, 'blog.html', {
+    news = News.objects.all()
+    return render(request, 'news.html', {
         'news': news,
     })
 
 
 def news_detail_view(request, slug):
     news = get_object_or_404(News, slug=slug)
-    return render(request, 'blog_details.html', {
+    recommended_news = News.objects.filter(category=news.category)
+    return render(request, 'newsdetail.html', {
         'news': news,
+        'recommended_news': recommended_news,
     })
 
 
 def event_list_view(request):
-    events = Event.objects.all().order_by('-event_date')
+    events = Event.objects.all()
     return render(request, 'event.html', {
         'events': events,
     })

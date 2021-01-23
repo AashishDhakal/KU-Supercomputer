@@ -26,6 +26,7 @@ class News(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField(null=True, blank=True)
     published_date = models.DateTimeField(auto_now_add=True)
+    author = models.CharField(max_length=30, default='')
     category = models.CharField(max_length=50)
     thumbnail = models.ImageField(upload_to='news')
     detail = models.TextField()
@@ -35,6 +36,7 @@ class News(models.Model):
 
     class Meta:
         verbose_name_plural = 'News'
+        ordering = ('-published_date', )
 
 
 class Sponsor(models.Model):
@@ -105,3 +107,6 @@ class Event(models.Model):
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        ordering = ('-event_date', )

@@ -19,122 +19,36 @@
     <div class="uk-container">
       <div class="heading uk-text-center">Checkout Our News & Blogs</div>
       <div uk-grid>
+          {% if news %}
+          {% for news_post in news %}
         <div class="uk-width-1-3@l uk-width-1-2@m uk-width-1-2@s">
           <div class="events-card">
             <div class="events-card__image">
-              <a href="newssingle.html">
+              <a href="{% url 'news_detail' news_post.slug %}">
                 <img
-                  src="https://images.unsplash.com/photo-1573495804669-cd114be49e90?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                  src="{{ news_post.thumbnail.url }}"
                   alt=""
                 />
               </a>
             </div>
             <div class="events-card__content">
-              <div class="type uk-text-capitalize">educational</div>
-              <a href="newssingle.html">
-                <div class="title">How to make a Noob Tilt and rage quit</div>
+              <div class="type uk-text-capitalize">{{ news_post.category }}</div>
+              <a href="{% url 'news_detail' news_post.slug %}">
+                <div class="title">{{ news_post.title }}</div>
               </a>
               <div class="uk-text-light text">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas
-                explicabo labore distinctio, autem assumenda recusandae?
-                Possimus, qui eum similique velit, fuga voluptatem amet modi hic
-                in tempora iusto magnam? Deserunt.
+                {{ news_post.detail | safe }}
               </div>
               <div class="readmore">
-                <a class="uk-button uk-button-text" href="newssingle.html"
+                <a class="uk-button uk-button-text" href="{% url 'news_detail' news_post.slug %}"
                   >Read more</a
                 >
               </div>
             </div>
           </div>
         </div>
-        <div class="uk-width-1-3@l uk-width-1-2@m uk-width-1-2@s">
-          <div class="events-card">
-            <div class="events-card__image">
-              <a href="eventssingle.html">
-                <img
-                  src="https://images.unsplash.com/photo-1573495804669-cd114be49e90?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-                  alt=""
-                />
-              </a>
-            </div>
-            <div class="events-card__content">
-              <div class="type uk-text-capitalize">educational</div>
-              <a href="eventssingle.html">
-                <div class="title">How to make a Noob Tilt and rage quit</div>
-              </a>
-              <div class="uk-text-light text">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas
-                explicabo labore distinctio, autem assumenda recusandae?
-                Possimus, qui eum similique velit, fuga voluptatem amet modi hic
-                in tempora iusto magnam? Deserunt.
-              </div>
-              <div class="readmore">
-                <a class="uk-button uk-button-text" href="eventssingle.html"
-                  >Read more</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="uk-width-1-3@l uk-width-1-2@m uk-width-1-2@s">
-          <div class="events-card">
-            <div class="events-card__image">
-              <a href="eventssingle.html">
-                <img
-                  src="https://images.unsplash.com/photo-1573495804669-cd114be49e90?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-                  alt=""
-                />
-              </a>
-            </div>
-            <div class="events-card__content">
-              <div class="type uk-text-capitalize">educational</div>
-              <a href="eventssingle.html">
-                <div class="title">How to make a Noob Tilt and rage quit</div>
-              </a>
-              <div class="uk-text-light text">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas
-                explicabo labore distinctio, autem assumenda recusandae?
-                Possimus, qui eum similique velit, fuga voluptatem amet modi hic
-                in tempora iusto magnam? Deserunt.
-              </div>
-              <div class="readmore">
-                <a class="uk-button uk-button-text" href="eventssingle.html"
-                  >Read more</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="uk-width-1-3@l uk-width-1-2@m uk-width-1-2@s">
-          <div class="events-card">
-            <div class="events-card__image">
-              <a href="eventssingle.html">
-                <img
-                  src="https://images.unsplash.com/photo-1573495804669-cd114be49e90?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
-                  alt=""
-                />
-              </a>
-            </div>
-            <div class="events-card__content">
-              <div class="type uk-text-capitalize">educational</div>
-              <a href="eventssingle.html">
-                <div class="title">How to make a Noob Tilt and rage quit</div>
-              </a>
-              <div class="uk-text-light text">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas
-                explicabo labore distinctio, autem assumenda recusandae?
-                Possimus, qui eum similique velit, fuga voluptatem amet modi hic
-                in tempora iusto magnam? Deserunt.
-              </div>
-              <div class="readmore">
-                <a class="uk-button uk-button-text" href="eventssingle.html"
-                  >Read more</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
+          {% endfor %}
+      {% endif %}
       </div>
     </div>
   </div>
